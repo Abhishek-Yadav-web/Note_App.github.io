@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    max-height:100vh ;
+    position: relative;
+}
+
+.container.editing::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+    z-index: 999999;
+}
+
+.header{
+    width: 100%;
+    padding: 10px 5px;
+    background: #fff;
+    border-bottom: 0.9px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.header .leftBx{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius:50px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin-right: 15px;
+}
+
+
+.header .menu:hover{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.header .menu ion-icon{
+    width: 60%;
+    height: 60%;
+    color: #808080;
+}
+
+.header .menu:hover ion-icon{
+    transition: 0.4s ease;
+    color: #111;
+}
+
+.header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #5f6368;
+    margin-right: 60px;
+}
+
+.header .logo img{
+    width: 45px;
+    height: 45px;
+    margin-right: 8px;
+}
+
+.header .searchBx {
+    width: 700px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.header .searchBx:hover{
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+.header .searchBx .iconBx{
+    height: 100%;
+    width: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.4s ease;
+}
+
+
+.header .searchBx .iconBx#close{
+    position: absolute;   
+    top: 50%;
+    height: 40px;
+    transform: translateY(-50%);
+    right: 5px;
+}
+
+.header .searchBx .iconBx:hover{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.header .searchBx .iconBx ion-icon{
+    width: 50%;
+    height: 50%;
+}
+
+.header .searchBx input{
+    height: 100%;
+    width: 90%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+
+.header .searchBx input::placeholder{
+    font-size: 1.2em;
+}
+
+.header .rightBx{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header .rightBx .iconBx{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header .rightBx .iconBx:nth-child(3){
+    margin-right: 20px;
+}
+
+
+.header .rightBx .iconBx:hover,
+.header .rightBx #user{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.header .rightBx .iconBx ion-icon{
+    width: 55%;
+    height: 55%;
+    color: #5f6368;
+}
+
+.header .rightBx .iconBx img{
+    width: 80%;
+    height: 80%;
+    border-radius: 50px;
+}
+
+/* Main Body */
+.mainBody{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+
+.barOps{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999;
+}
+
+.barOps.active{
+    position: relative;
+    width: 20%;
+    height: 100%;
+}
+
+.barOps:hover{
+    width: 20%;
+}
+
+.barOps a{
+    width: 100%;
+    padding: 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius:50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.barOps a:hover{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+.barOps.active a.activeBtn,
+.barOps.active a.activeBtn:hover{
+    background: #feefc3;
+}
+
+.barOps  a .iconBx {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barOps a.activeBtn .iconBx,
+.barOps a.activeBtn:hover .iconBx{
+    background: #feefc3;
+}
+
+.barOps  a .iconBx ion-icon{
+    width: 50%;
+    height: 50%;
+}
+
+.barOps a .iconName{
+    margin-left: 40px;
+    display: none;
+}
+
+.barOps.active a .iconName,
+.barOps:hover a .iconName{
+    display: block;
+    margin-right: 100px;
+}
+
+.contentBx{
+    width: 100%;
+    height: 100%;
+    padding: 0 50px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.contentBx .addNotesBx{
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contentBx .addNotesBx .inputBx{
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.2),0 -2px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+}
+
+.addNotesBx .inputBx h3{
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #808080;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+
+.addNotesBx .inputBx ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+}
+
+
+.addNotesBx .inputBx ul li{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+
+.addNotesBx .inputBx ul li:hover{
+    background: #ccc;
+}
+
+
+.addNotesBx .inputBx ul li ion-icon{
+    width: 50%;
+    height: 50%;
+    color: #808080;
+}
+
+.addNotesBx .inputBx .noteBx,
+.editBx{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.2),0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.addNotesBx .inputBx .noteBx.active{
+    visibility: visible;
+}
+
+
+.addNotesBx .inputBx .noteBx #titleBx,
+.addNotesBx .inputBx .noteBx #noteBx,
+.editBx #titleBxEdit,
+.editBx #noteBxEdit{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+
+.addNotesBx .inputBx .noteBx #noteBx,
+.editBx #noteBxEdit{
+    height: 60px;
+    resize: none;
+}
+
+
+.addNotesBx .inputBx .noteBx #titleBx::placeholder,
+.addNotesBx .inputBx .noteBx #titleBx,
+.editBx #titleBxEdit::placeholder,
+.editBx #titleBxEdit{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.iconBx {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftBx, .rightBx,.leftBxEdit, .rightBxEdit{
+    display: flex;
+}
+
+.iconBx a{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+ .iconBx a:hover{
+    background: #ccc;
+}
+
+ .iconBx a:nth-child(1){
+    margin-left: 0;
+}
+
+.iconBx #closeNB{
+    margin-right: 10px;
+    color: #111;
+    cursor: pointer;
+}
+
+.pin,.pinEdit{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+ .pin:hover , .pinEdit:hover{
+    background: #ccc;
+}
+
+.pin ion-icon, .pinEdit ion-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.contentBx .nfounBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 888;
+    visibility: hidden;
+    background: #fff;
+}
+
+
+.contentBx .nfounBx.active{
+    visibility: visible;
+}
+
+.contentBx .nfounBx .nfounPop{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2),0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentBx .nfounBx .nfounPop .bx{
+    text-align: center;
+}
+.contentBx .nfounBx .nfounPop img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.displayBx,.trashBx,.recycled{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(auto,auto);
+    grid-gap: 20px;
+
+}
+
+
+.displayBx.active,
+.trashPg.activeGrid,
+.recycled.active{
+    grid-template-columns: repeat(2, auto);
+}
+
+.displayBx a{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.displayBx .box,
+.trashPg .box,
+.recycled .box{
+    /* width: 300px;
+    height: 200px; */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
+.displayBx .box h3,
+.trashPg .box h3,
+.recycled .box h3{
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+.displayBx .box p,
+.trashPg .box p,
+.recycled .box p{
+    font-size: 0.8em;
+    font-weight: 300;
+    margin-bottom:40px ;
+    color: #1f1f1f;
+}
+
+.displayBx .iconBox, 
+.trashPg  .iconBox,
+.recycled .iconBox{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.displayBx .box:hover .iconBox,
+.trashPg .box:hover .iconBox,
+.recycled .box:hover .iconBox{
+    visibility: visible;
+}
+
+.displayBx .box .iconBox a,
+.trashPg .box .iconBox a,
+.recycled .box .iconBox a{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+
+.displayBx .box .iconBox a:hover,
+.trashPg .box .iconBox a:hover,
+.recycled .box .iconBox a:hover{
+    background: #ccc;
+}
+
+.displayBx .remove,
+.trashPg .remove,
+.trashPg .recycle,
+.recycled .remove{
+    position: absolute;
+    bottom: 10px ;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rTitle, .oTitle{
+    width: 100%;
+    padding: 0 50px;
+    text-transform: uppercase;
+}
+
+.rTitle h4,
+.oTitle h4{
+    color: #ccc;
+    font-weight: 300;
+}
+
+
+
+/* Edit Bx */
+.editBx{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    background: #fff;
+    z-index: 9999991;
+    visibility: hidden;
+}
+
+.editBx #titleBxEdit{
+    font-size: 1.8em;
+}
+
+.editBx #noteBxEdit{
+    padding: 5px;
+    height: 400px;
+    font-size: 0.8em;
+}

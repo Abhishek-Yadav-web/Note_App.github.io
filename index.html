@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 | Google Keep</title>
+    <link rel="shortcut icon" href="./img/Keep FavIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="leftBx">
+                <a class="menu" id="menu"><ion-icon name="menu-outline" id="menuBtn"></ion-icon></a>
+                <a class="logo"><img src="./img/Keep Icon.png" alt="Icon"> Keep</a>
+                <div class="searchBx">
+                    <div class="iconBx" id="search"><ion-icon name="search-outline"></ion-icon></div>
+                    <input type="text" placeholder="Search">
+                    <div class="iconBx" id="close"><ion-icon name="close-outline"></ion-icon></div>
+                </div>
+            </div>
+            <div class="rightBx">
+                <div class="iconBx" title="Reload"> <ion-icon name="refresh"></ion-icon></div>
+                <div class="iconBx" title="List View"> <ion-icon name="reorder-two"></ion-icon></div>
+                <div class="iconBx" title="Setting"> <ion-icon name="settings"></ion-icon></div>
+                <div class="iconBx" title="Apps"><ion-icon name="apps"></ion-icon> </div>
+                <div class="iconBx" title="User" id="user"> <img src="./img/user.png" alt="user"></div>
+            </div>
+        </div>
+        <!-- Main Body -->
+        <div class="mainBody">
+            <div class="barOps">
+                <a class="activeBtn"><span class="iconBx"><ion-icon name="bulb-outline"></ion-icon></span><span class="iconName">Notes</span></a>
+                <a><span class="iconBx"><ion-icon name="notifications-outline"></ion-icon></span><span class="iconName">Reminders</span></a>
+                <a><span class="iconBx"><ion-icon name="pencil-outline"></ion-icon></span><span class="iconName">Edit labels</span></a>
+                <a><span class="iconBx"><ion-icon name="archive-outline"></ion-icon></span><span class="iconName">Archive</span></a>
+                <a><span class="iconBx"><ion-icon name="trash-outline"></ion-icon></span><span class="iconName">Trash</span></a>
+            </div>
+            <div class="contentBx">
+                <!-- Give your notes in add NotesBx -->
+                <div class="addNotesBx">
+                    <div class="inputBx">
+                        <h3 class="openBx">Takes a notes...</h3>
+                        <ul>
+                            <li><ion-icon name="checkbox-outline"></ion-icon></li>
+                            <li><ion-icon name="brush-outline"></ion-icon></li>
+                            <li><ion-icon name="image-outline"></ion-icon></li>
+                        </ul>
+                        <div class="noteBx close" id="addnote">
+                            <input type="text" placeholder="Title" id="titleBx" autocomplete="off">
+                            <textarea placeholder="Take a note..." id="noteBx" autocomplete="off"></textarea>
+                            <div class="iconBx">
+                                <div class="leftBx">
+                                    <a><ion-icon name="notifications-outline"></ion-icon></a>
+                                    <a><ion-icon name="person-add-outline"></ion-icon></a>
+                                    <a><ion-icon name="color-palette-outline"></ion-icon></a>
+                                    <a><ion-icon name="image-outline"></ion-icon></a>
+                                    <a><ion-icon name="archive-outline"></ion-icon></a>
+                                    <a><ion-icon name="ellipsis-vertical"></ion-icon></a>
+                                    <a><ion-icon name="arrow-undo-outline"></ion-icon></a>
+                                    <a><ion-icon name="arrow-redo-outline"></ion-icon></a>
+                                </div>
+                                <div class="rightBx">
+                                    <a class="closeBx"> <ion-icon name="close-outline"></ion-icon></a>
+                                    <a class="submitBx"> <ion-icon name="checkmark-outline"></ion-icon></a>
+                                </div>
+                            </div>
+                            <a class="pin">
+                                <ion-icon name="pin-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- your Notes.. --> 
+                <div class="displayBx">
+                </div>
+                <!-- No Functionable -->
+                <div class="nfounBx">
+                    <div class="nfounPop">
+                        <div class="bx">
+                            <img src="./img/oops.gif" alt="robot">
+                            <h1>Sorry, Still working on it.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit My Notes & Read -->
+        <div class="editBx">
+            <input type="text" placeholder="Title" id="titleBxEdit" autocomplete="off">
+            <textarea placeholder="Take a note..." id="noteBxEdit" autocomplete="off"></textarea>
+            <div class="iconBx">
+                <div class="leftBxEdit">
+                    <a><ion-icon name="notifications-outline"></ion-icon></a>
+                    <a><ion-icon name="person-add-outline"></ion-icon></a>
+                    <a><ion-icon name="color-palette-outline"></ion-icon></a>
+                    <a><ion-icon name="image-outline"></ion-icon></a>
+                    <a><ion-icon name="archive-outline"></ion-icon></a>
+                    <a><ion-icon name="ellipsis-vertical"></ion-icon></a>
+                    <a><ion-icon name="arrow-undo-outline"></ion-icon></a>
+                    <a><ion-icon name="arrow-redo-outline"></ion-icon></a>
+                </div>
+                <div class="rightBxEdit">
+                    <a class="closeBx" id="editCloseEdit"> <ion-icon name="close-outline"></ion-icon></a>
+                    <a class="submitBx" id="editSubmitEdit"> <ion-icon name="checkmark-outline"></ion-icon></a>
+                </div>
+            </div>
+            <a class="pinEdit" id="eidtPin">
+                <ion-icon name="pin-outline"></ion-icon>
+            </a>
+        </div>
+    </div>
+
+    <!-- script.js links -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
